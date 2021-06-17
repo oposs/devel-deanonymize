@@ -9,7 +9,12 @@ sub import {
     $include_pattern = $_[1];
 }
 
-UNITCHECK {
+sub modify_files{
+    # Internal note:
+    # Basically, this code replaces every file path in @INC with a reference to an anonymous sub which wraps each
+    # file in sub classWrapper { $orig_content } classWrapper(); However, this sub is **not** necessarily run at INIT or UNITCHECK stage!
+    # NB, this also explains why its is possible to have $include_pattern "defined" at UNITCHECK even if its run **before** import()
+    # Also do not forget the `__END__` at each file
     unshift @INC, sub {
         my (undef, $filename) = @_;
         return () if ($filename !~ /$include_pattern/);
@@ -42,6 +47,18 @@ UNITCHECK {
             return ();
         }
     };
+}
+
+# We call modify_files twice since various tests revealed (insert root cause) that sometimes our files in @INC is ready at
+# INIT stage (e.g in Callbackery applications) while they are sometimes ready at UNITCHECK stage (for example the tests
+# in this repo)...
+# Since we only modify non references in @INC a "double-modification" is not possible.
+INIT {
+   modify_files();
+}
+
+UNITCHECK {
+    modify_files();
 }
 
 

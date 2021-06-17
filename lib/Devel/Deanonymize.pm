@@ -49,10 +49,9 @@ sub modify_files{
     };
 }
 
-# We call modify_files twice since various tests revealed (insert root cause) that sometimes our files in @INC is ready at
-# INIT stage (e.g in Callbackery applications) while they are sometimes ready at UNITCHECK stage (for example the tests
-# in this repo)...
-# Since we only modify non references in @INC a "double-modification" is not possible.
+
+# We call modify_files twice since depending on how a module is loaded (use or required) it is present in @INC at different stages
+# A "double-modification" is not possible because we only edit non references
 INIT {
    modify_files();
 }

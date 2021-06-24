@@ -28,8 +28,8 @@ WriteMakefile(
         requires  => { perl => '5.020000' },
         resources => {
             license    => 'https://opensource.org/licenses/mit',
-            repository => 'https://github.com/sirtoobii/wg-meta',
-            bugtracker => 'https://github.com/sirtoobii/wg-meta/issues'
+            repository => 'https://github.com/oposs/devel-deanonymize',
+            bugtracker => 'https://github.com/oposs/devel-deanonymize/issues'
         },
         no_index  => { directory => [ 't' ] }
     },

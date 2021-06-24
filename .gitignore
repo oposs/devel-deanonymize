@@ -3,4 +3,7 @@
 _Deparsed_XSubs.pm
 examples/cover_db
 *.tar
-Makefile.old
+Makefile*
+blib/
+pm_to_blib
+MYMETA.*

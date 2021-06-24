@@ -39,7 +39,7 @@ S<Tobias Bossert E<lt>tobib at cpan.orgE<gt>>
 
 MIT License
 
-Copyright (c) 2021 Tobias Bossert, Oetiker + Partner AG Switzerland
+Copyright (c) 2021 Tobias Bossert, OETIKER+PARTNER AG Switzerland
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

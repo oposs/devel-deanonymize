@@ -7,7 +7,7 @@ Devel::Deanonymize - A small tool to make anonymous sub visible
 When collecting Coverage statistics with L<Devel::Cover> a construct like below appear to be invisible and is simply ignored
 by the statistic:
 
-    my $sub = sub handle{
+    my $sub = sub {
         print "hello";
     }
 
@@ -65,7 +65,7 @@ package Devel::Deanonymize;
 use strict;
 use warnings FATAL => 'all';
 
-our $VERSION = "0.1.0";
+our $VERSION = "0.1.1";
 
 my $include_pattern;
 

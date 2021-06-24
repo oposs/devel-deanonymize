@@ -1,36 +1,24 @@
-# Perl tests with coverage statistics
+# Devel::Deanonymize
 
-A quick guide on capturing coverage statistics in perl programs
+A small tool to make anonymous sub visible to Devel::Coverage (and possibly similar Modules)
 
-## Synopsys
+## Synopsys 
 
 ```bash
 # delete old coverage data (optional)
 cover -delete
 
 # Perl scripts
-perl -I lib/ -MDevel::Cover=-ignore,^t/,Deanonymize -MDevel::Deanonymize=Fancy runit.pl
+perl -MDevel::Cover=-ignore,^t/,Deanonymize -MDevel::Deanonymize=<inculde_pattern> your_script.pl
 
 # Perl tests
-HARNESS_PERL_SWITCHES="-MDevel::Cover=-ignore,^t/,Deanonymize -MDevel::Deanonymize=Fancy"  prove -I lib/ t
+HARNESS_PERL_SWITCHES="-MDevel::Cover=-ignore,^t/,Deanonymize -MDevel::Deanonymize=<include_pattern"  prove t/
 
 # generate report
 cover -report html
 ```
 
-## Anonymous subs
-
-Unfortunately, anonymous subs are invisible to the Coverage package. The solution for this problem is `Devel::Deanoymize` (available in this repo)
-
-```bash
-# perl scripts
-perl -I lib/ -MDevel::Cover=<options> -MDevel::Deanonymize=<include_pattern> your_script.pl
-
-# perl tests
-HARNESS_PERL_SWITCHES="-MDevel::Cover=<options> -MDevel::Deanonymize=<include_pattern>" prove -I lib/ t
-```
-
-## Reports
+## Coverage Reports
 
 Per default, `Devel::Cover` creates a folder named `cover_db` inside the project root. To visualize the result, we have to
 generate a report:
@@ -41,6 +29,10 @@ cover -report html
 
 The html report (or any other report type) is then stored under `cover_db` as well.
 
+
+## Examples
+
+See separate subdirectory [examples/runit.sh](examples/runit.sh)
 
 ## Important notes
 

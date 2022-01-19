@@ -1,6 +1,6 @@
 0.1.2 2022-01-19  Tobias Bossert (tobib at cpan.org)
 
-- Fixed replace regex that (end-of-script marker)
+- Fixed replace regex (end-of-script marker)
 - Added debug capabilities
 - Improved example
 

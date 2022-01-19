@@ -22,7 +22,7 @@ cover -report html
 ## Debugging
 
 If your tests suddenly fail for some weird reason, you can set `DEANONYMIZE_DEBUG`. If this environment variable is set,
-we print out the filename for every modified file write its contents to `<filpath/filename>_mod.pl`
+we print out the filename for every modified file and write its contents to `<filpath/filename>_mod.pl`
 
 ## Coverage Reports
 

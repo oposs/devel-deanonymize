@@ -20,7 +20,7 @@ jobs:
           - '5.32'
 
       fail-fast: true
-    name: node-${{ matrix.node }}/perl${{ matrix.perl }}/${{ matrix.os }}
+    name: perl${{ matrix.perl }}/${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 

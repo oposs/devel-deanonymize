@@ -1,0 +1,48 @@
+name: Unit Tests
+
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-20.04
+        perl:
+          - '5.22'
+          - '5.26'
+          - '5.32'
+
+      fail-fast: true
+    name: node-${{ matrix.node }}/perl${{ matrix.perl }}/${{ matrix.os }}
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl }}
+
+      - name: Configure
+        run: perl Makefile.PL
+
+      - name: Make
+        run: make
+
+      - name: Test
+        run: make test
+
+      - name: Dist
+        run: make dist
+

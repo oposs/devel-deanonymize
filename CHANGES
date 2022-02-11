@@ -1,3 +1,10 @@
+0.2.0 2022-02-11  Tobias Bossert (tobib at cpan.org)
+
+- Added endmarker tests
+- Improved endmarkers detection (we now search from bottom up)
+- Improved example
+
+
 0.1.2 2022-01-19  Tobias Bossert (tobib at cpan.org)
 
 - Fixed replace regex (end-of-script marker)

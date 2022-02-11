@@ -83,7 +83,7 @@ use base 'Exporter';
 
 our @EXPORT = qw(alterContent);
 
-our $VERSION = "0.1.2";
+our $VERSION = "0.2.0"; # Do not change manually, changed automatically on `make build` target
 
 my $include_pattern;
 
@@ -111,7 +111,7 @@ sub alterContent {
     return $input
 }
 
-sub hasEndmarker{
+sub hasEndmarker {
     my $input = shift;
     if ($input =~ /^[\s]*(__END__|1;|1\Z|__DATA__)[\s]*$(.*)\Z/gms) {
         return 1;
@@ -173,6 +173,5 @@ INIT {
 UNITCHECK {
     modify_files();
 }
-
 
 1;

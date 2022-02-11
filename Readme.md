@@ -42,6 +42,6 @@ See separate subdirectory [examples/runit.sh](examples/runit.sh)
 
 ## Important notes
 
-- Make sure your script (the one under test) always ends with `__END__`, otherwise the regex to modify it fails silently
+- Make sure your script (the one under test) always ends with `__END__`, `__DATA__` or `1;`, otherwise the regex to modify it fails silently
 - To debug if your script is "deanonymized" use `warn()` instead of `print()` print is somewhat unreliable in this early stage
 - [Devel::Cover](https://metacpan.org/pod/Devel::Cover) on cpan
